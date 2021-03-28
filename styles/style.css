@@ -1,1 +1,83 @@
-/* No CSS *//*# sourceMappingURL=style.css.map */
+body {
+  background: black;
+  margin: 0;
+  overflow: hidden;
+}
+
+.pacman {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  background: yellow;
+  border-radius: 50%;
+  height: 300px;
+  width: 300px;
+  -webkit-animation: pacmanwalk 6000ms linear infinite;
+          animation: pacmanwalk 6000ms linear infinite;
+}
+
+.pacman .mouth {
+  position: absolute;
+  display: block;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  -webkit-animation: pacmanmouth 300ms linear infinite alternate;
+          animation: pacmanmouth 300ms linear infinite alternate;
+}
+
+.pacman .mouth:after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translate(70%, -50%) rotate(45deg);
+          transform: translate(70%, -50%) rotate(45deg);
+  width: 100%;
+  right: 0;
+  height: calc(300px);
+  background: black;
+}
+
+@-webkit-keyframes pacmanwalk {
+  0% {
+    left: -300px;
+  }
+  100% {
+    left: calc(100% + 300px);
+  }
+}
+
+@keyframes pacmanwalk {
+  0% {
+    left: -300px;
+  }
+  100% {
+    left: calc(100% + 300px);
+  }
+}
+
+@-webkit-keyframes pacmanmouth {
+  0% {
+    -webkit-transform: scaleY(0);
+            transform: scaleY(0);
+  }
+  100% {
+    -webkit-transform: scaleY(1);
+            transform: scaleY(1);
+  }
+}
+
+@keyframes pacmanmouth {
+  0% {
+    -webkit-transform: scaleY(0);
+            transform: scaleY(0);
+  }
+  100% {
+    -webkit-transform: scaleY(1);
+            transform: scaleY(1);
+  }
+}
+/*# sourceMappingURL=style.css.map */
