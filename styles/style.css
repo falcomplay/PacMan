@@ -2,6 +2,7 @@ body {
   background: black;
   margin: 0;
   overflow: hidden;
+  font-family: 'Press Start 2P', cursive;
 }
 
 .pacman {
@@ -12,8 +13,10 @@ body {
           transform: translate(-50%, -50%);
   background: yellow;
   border-radius: 50%;
+  z-index: 10;
   height: 300px;
   width: 300px;
+  overflow: hidden;
   -webkit-animation: pacmanwalk 6000ms linear infinite;
           animation: pacmanwalk 6000ms linear infinite;
 }
@@ -25,6 +28,7 @@ body {
   left: 0;
   right: 0;
   bottom: 0;
+  z-index: 1;
   -webkit-animation: pacmanmouth 300ms linear infinite alternate;
           animation: pacmanmouth 300ms linear infinite alternate;
 }
@@ -79,5 +83,46 @@ body {
     -webkit-transform: scaleY(1);
             transform: scaleY(1);
   }
+}
+
+.row {
+  display: -ms-grid;
+  display: grid;
+  height: 100px;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100vw;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  z-index: 2;
+  color: white;
+  font-size: 100px;
+  -ms-grid-columns: (1fr)[5];
+      grid-template-columns: repeat(5, 1fr);
+}
+
+.row span {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.pacman-trail {
+  position: absolute;
+  -webkit-transform: translateX(-100%);
+          transform: translateX(-100%);
+  background: black;
+  height: 100vw;
+  width: 120vw;
+  z-index: 5;
+  -webkit-animation: pacmanwalk 6000ms linear infinite;
+          animation: pacmanwalk 6000ms linear infinite;
 }
 /*# sourceMappingURL=style.css.map */

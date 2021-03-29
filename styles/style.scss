@@ -2,6 +2,7 @@ body {
     background: black;
     margin: 0;
     overflow: hidden;
+    font-family: 'Press Start 2P', cursive;
 }
 
 $sizepacman: 300px;
@@ -13,8 +14,10 @@ $sizepacman: 300px;
     transform: translate(-50%, -50%);
     background: yellow;
     border-radius: 50%;
+    z-index: 10;
     height: $sizepacman;
     width: $sizepacman;
+    overflow: hidden;
 
     animation: pacmanwalk 6000ms linear infinite;
 
@@ -25,6 +28,9 @@ $sizepacman: 300px;
         left: 0;
         right: 0;
         bottom: 0;
+        z-index: 1;
+        
+        
         animation: pacmanmouth 300ms linear infinite alternate;
     }
 
@@ -56,4 +62,36 @@ $sizepacman: 300px;
     100% {
         transform:scaleY(1);
     }
+}
+
+.row {
+    display: grid;
+    height: 100px;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100vw;
+    transform: translateY(-50%);
+    z-index: 2;
+
+    color: white;
+    font-size: 100px;
+    grid-template-columns: repeat(5, 1fr);
+
+    span {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+.pacman-trail {
+    position: absolute;
+    transform: translateX(-100%);
+    background: black;
+    height: 100vw;
+    width: 120vw;
+    z-index: 5;
+
+    animation: pacmanwalk 6000ms linear infinite;
 }
