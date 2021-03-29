@@ -11,38 +11,27 @@ body {
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
-  background: yellow;
-  border-radius: 50%;
   z-index: 10;
-  height: 300px;
-  width: 300px;
-  overflow: hidden;
   -webkit-animation: pacmanwalk 6000ms linear infinite;
           animation: pacmanwalk 6000ms linear infinite;
 }
 
-.pacman .mouth {
-  position: absolute;
-  display: block;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 1;
-  -webkit-animation: pacmanmouth 300ms linear infinite alternate;
-          animation: pacmanmouth 300ms linear infinite alternate;
+.pacman .pacman-top {
+  background-color: yellow;
+  width: 300px;
+  height: 150px;
+  border-radius: 150px 150px 0 0;
+  -webkit-animation: spin1 0.5s infinite linear;
+          animation: spin1 0.5s infinite linear;
 }
 
-.pacman .mouth:after {
-  content: '';
-  position: absolute;
-  top: 50%;
-  -webkit-transform: translate(70%, -50%) rotate(45deg);
-          transform: translate(70%, -50%) rotate(45deg);
-  width: 100%;
-  right: 0;
-  height: calc(300px);
-  background: black;
+.pacman .pacman-bottom {
+  background-color: yellow;
+  width: 300px;
+  height: 150px;
+  border-radius: 0 0 150px 150px;
+  -webkit-animation: spin2 0.5s infinite linear;
+          animation: spin2 0.5s infinite linear;
 }
 
 @-webkit-keyframes pacmanwalk {
@@ -63,25 +52,47 @@ body {
   }
 }
 
-@-webkit-keyframes pacmanmouth {
+@-webkit-keyframes spin1 {
   0% {
-    -webkit-transform: scaleY(0);
-            transform: scaleY(0);
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
   }
-  100% {
-    -webkit-transform: scaleY(1);
-            transform: scaleY(1);
+  50% {
+    -webkit-transform: rotate(-35deg);
+            transform: rotate(-35deg);
   }
 }
 
-@keyframes pacmanmouth {
+@keyframes spin1 {
   0% {
-    -webkit-transform: scaleY(0);
-            transform: scaleY(0);
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
   }
-  100% {
-    -webkit-transform: scaleY(1);
-            transform: scaleY(1);
+  50% {
+    -webkit-transform: rotate(-35deg);
+            transform: rotate(-35deg);
+  }
+}
+
+@-webkit-keyframes spin2 {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  50% {
+    -webkit-transform: rotate(35deg);
+            transform: rotate(35deg);
+  }
+}
+
+@keyframes spin2 {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  50% {
+    -webkit-transform: rotate(35deg);
+            transform: rotate(35deg);
   }
 }
 
@@ -95,7 +106,7 @@ body {
   width: 100vw;
   -webkit-transform: translateY(-50%);
           transform: translateY(-50%);
-  z-index: 2;
+  z-index: 5;
   color: white;
   font-size: 100px;
   -ms-grid-columns: (1fr)[5];

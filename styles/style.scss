@@ -7,42 +7,30 @@ body {
 
 $sizepacman: 300px;
 
-.pacman { 
+.pacman {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background: yellow;
-    border-radius: 50%;
     z-index: 10;
-    height: $sizepacman;
-    width: $sizepacman;
-    overflow: hidden;
 
     animation: pacmanwalk 6000ms linear infinite;
 
-    .mouth {
-        position: absolute;
-        display: block;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        z-index: 1;
-        
-        
-        animation: pacmanmouth 300ms linear infinite alternate;
-    }
+    .pacman-top {
+        background-color: yellow;
+        width: $sizepacman;
+        height: $sizepacman/2;
+        border-radius: $sizepacman/2 $sizepacman/2 0 0;
 
-    .mouth:after {
-        content: '';
-        position: absolute;
-        top: 50%;
-        transform: translate(70%, -50%) rotate(45deg);
-        width: 100%;
-        right: 0;
-        height: calc(#{$sizepacman});
-        background:black;
+        animation: spin1 0.5s infinite linear;
+    }
+    .pacman-bottom {
+        background-color: yellow;
+        width: $sizepacman;
+        height: $sizepacman/2;
+        border-radius: 0 0 $sizepacman/2 $sizepacman/2;
+
+        animation: spin2 0.5s infinite linear;
     }
 }
 
@@ -55,13 +43,14 @@ $sizepacman: 300px;
     }
 }
 
-@keyframes pacmanmouth {
-    0% {
-        transform:scaleY(0);
-    }
-    100% {
-        transform:scaleY(1);
-    }
+@keyframes spin1 {
+	0%  {transform: rotate(0deg);}
+	50%{transform: rotate(-35deg);}
+  
+}
+@keyframes spin2 {
+	0%  {transform: rotate(0deg);}
+  50%{transform: rotate(35deg);}	
 }
 
 .row {
@@ -72,7 +61,7 @@ $sizepacman: 300px;
     left: 0;
     width: 100vw;
     transform: translateY(-50%);
-    z-index: 2;
+    z-index: 5;
 
     color: white;
     font-size: 100px;
@@ -94,4 +83,4 @@ $sizepacman: 300px;
     z-index: 5;
 
     animation: pacmanwalk 6000ms linear infinite;
-}
+} 
